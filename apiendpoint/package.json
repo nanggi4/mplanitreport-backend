@@ -1,0 +1,48 @@
+{
+  "name": "mplanitreport-apiendpoint",
+  "version": "0.0.1",
+  "description": "endpoint of mplanitreport",
+  "authors": [
+    "kihun.nam <kihun.nam.dev@gmail.com>"
+  ],
+  "license": "ISC",
+  "main": "lambda.js",
+  "scripts": {
+    "update-awslambda-builder": "rsync -avr --exclude='.git' ~/environment/awsbuilder/awslambda-builder ./node_modules/@sizeko/",
+    "update-awslambda-interface": "rsync -avr --exclude='.git' ~/environment/awsbuilder/awslambda-interface ./node_modules/@sizeko/",
+    "package-lambda-prod": "zip -r mplanitreport-apiendpoint.zip * --exclude \"*.zip*\"",
+    "delete-lambda-prod": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint",
+    "create-lambda-prod": "npm run package-lambda-prod && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint --zip-file fileb://./mplanitreport-apiendpoint.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 180",
+    "update-lambda-prod": "npm run update-awslambda-builder && npm run package-lambda-prod && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-apiendpoint --zip-file fileb://./mplanitreport-apiendpoint.zip",
+    "update-env-prod": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-apiendpoint --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mds-env/.common-prod | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-prod": "",
+    "package-lambda-dev342": "zip -r mplanitreport-apiendpoint-dev342.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev342": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev342",
+    "create-lambda-dev342": "npm run package-lambda-dev342 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev342 --zip-file fileb://./mplanitreport-apiendpoint-dev342.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 180",
+    "update-lambda-dev342": "npm run update-awslambda-builder && npm run package-lambda-dev342 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev342 --zip-file fileb://./mplanitreport-apiendpoint-dev342.zip",
+    "update-env-dev342": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev342 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mds-env/.common-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev342": "",
+    "package-lambda-dev368": "zip -r mplanitreport-apiendpoint-dev368.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev368": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev368",
+    "create-lambda-dev368": "npm run package-lambda-dev368 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev368 --zip-file fileb://./mplanitreport-apiendpoint-dev368.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 180",
+    "update-lambda-dev368": "npm run update-awslambda-builder && npm run package-lambda-dev368 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev368 --zip-file fileb://./mplanitreport-apiendpoint-dev368.zip",
+    "update-env-dev368": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev368 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mds-env/.common-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev368": "",
+    "package-lambda-dev453": "zip -r mplanitreport-apiendpoint-dev453.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev453": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev453",
+    "create-lambda-dev453": "npm run package-lambda-dev453 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev453 --zip-file fileb://./mplanitreport-apiendpoint-dev453.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 180",
+    "update-lambda-dev453": "npm run update-awslambda-builder && npm run package-lambda-dev453 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev453 --zip-file fileb://./mplanitreport-apiendpoint-dev453.zip",
+    "update-env-dev453": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev453 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mds-env/.common-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev453": "",
+    "package-lambda-dev522": "zip -r mplanitreport-apiendpoint-dev522.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev522": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev522",
+    "create-lambda-dev522": "npm run package-lambda-dev522 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev522 --zip-file fileb://./mplanitreport-apiendpoint-dev522.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 180",
+    "update-lambda-dev522": "npm run update-awslambda-builder && npm run package-lambda-dev522 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev522 --zip-file fileb://./mplanitreport-apiendpoint-dev522.zip",
+    "update-env-dev522": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-apiendpoint-dev522 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mds-env/.common-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev522": ""
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {}
+}
