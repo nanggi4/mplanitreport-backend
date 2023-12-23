@@ -1,0 +1,49 @@
+{
+  "name": "mplanitreport-put-mplanitreport-account",
+  "version": "0.0.1",
+  "description": "mplanitreport-put-mplanitreport-account lambda function",
+  "authors": [
+    "kihum.nam <kihun.nam1006@gmail.com>"
+  ],
+  "license": "MIT",
+  "main": "lambda.js",
+  "scripts": {
+    "update-awslambda-builder": "rsync -avr --exclude='.git' ~/environment/awsbuilder/awslambda-builder ./node_modules/@sizeko/",
+    "package-lambda-prod": "zip -r mplanitreport-put-mplanitreport-account.zip * --exclude \"*.zip*\"",
+    "delete-lambda-prod": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account",
+    "create-lambda-prod": "npm run package-lambda-prod && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account --zip-file fileb://./mplanitreport-put-mplanitreport-account.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 90",
+    "update-lambda-prod": "npm run update-awslambda-builder && npm run package-lambda-prod && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account --zip-file fileb://./mplanitreport-put-mplanitreport-account.zip",
+    "update-env-prod": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mgnetenv/.common-prod | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-prod": "",
+    "package-lambda-dev342": "zip -r mplanitreport-put-mplanitreport-account-dev342.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev342": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev342",
+    "create-lambda-dev342": "npm run package-lambda-dev342 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev342 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev342.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 90",
+    "update-lambda-dev342": "npm run update-awslambda-builder && npm run package-lambda-dev342 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev342 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev342.zip",
+    "update-env-dev342": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev342 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mgnetenv/.common-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev342": "",
+    "package-lambda-dev368": "zip -r mplanitreport-put-mplanitreport-account-dev368.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev368": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev368",
+    "create-lambda-dev368": "npm run package-lambda-dev368 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev368 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev368.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 90",
+    "update-lambda-dev368": "npm run update-awslambda-builder && npm run package-lambda-dev368 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev368 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev368.zip",
+    "update-env-dev368": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev368 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mgnetenv/.common-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev368": "",
+    "package-lambda-dev453": "zip -r mplanitreport-put-mplanitreport-account-dev453.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev453": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev453",
+    "create-lambda-dev453": "npm run package-lambda-dev453 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev453 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev453.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 90",
+    "update-lambda-dev453": "npm run update-awslambda-builder && npm run package-lambda-dev453 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev453 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev453.zip",
+    "update-env-dev453": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev453 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mgnetenv/.common-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev453": "",
+    "package-lambda-dev522": "zip -r mplanitreport-put-mplanitreport-account-dev522.zip * --exclude \"*.zip*\"",
+    "delete-lambda-dev522": "aws lambda delete-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev522",
+    "create-lambda-dev522": "npm run package-lambda-dev522 && aws lambda create-function --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev522 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev522.zip --role arn:aws:iam::171396212423:role/mds-lambda-mplanitreport --handler lambda.handler --runtime nodejs14.x --timeout 90",
+    "update-lambda-dev522": "npm run update-awslambda-builder && npm run package-lambda-dev522 && aws lambda update-function-code --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev522 --zip-file fileb://./mplanitreport-put-mplanitreport-account-dev522.zip",
+    "update-env-dev522": "aws lambda update-function-configuration --region ap-northeast-2 --function-name mplanitreport-put-mplanitreport-account-dev522 --environment \"Variables={\"$(eval \"$(echo 'cat ~/environment/mgnetenv/.common-api-dev | tr -s \"\\n\" \",\"')\")\"}\"",
+    "update-vpc-dev522": ""
+  },
+  "dependencies": {
+    "dateformat": "^5.0.3",
+    "mysql": "^2.18.1",
+    "query-string": "^7.0.0",
+    "uuid": "^8.3.2"
+  }
+}
